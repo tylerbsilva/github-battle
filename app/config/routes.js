@@ -3,7 +3,10 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
+var BrowserHistroy = ReactRouter.browserHistory;
+
+// remove random key
+BrowserHistroy.queryKey = false;
 
 var Main = require('../components/Main');
 var Home = require('../components/Home');
@@ -13,7 +16,7 @@ var ConfirmBattleContainer = require('../containers/ConfirmBattleContainer')
 var ResultsContainer = require('../containers/ResultsContainer');
 
 var routes = (
-  <Router history={hashHistory}>
+  <Router history={BrowserHistroy}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
       <Route path='playerOne' header='Player One' component={PromptContainer} />
